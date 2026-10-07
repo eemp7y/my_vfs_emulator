@@ -1,0 +1,10 @@
+conf-dump
+ls
+cd home/user/documents
+ls
+tac hello.txt
+cal
+chown admin:staff hello.txt
+mv notes.txt /etc/notes_backup.txt
+cd /etc
+ls

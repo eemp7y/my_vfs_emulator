@@ -1,0 +1,38 @@
+{
+  "type": "dir",
+  "name": "/",
+  "children": {
+    "home": {
+      "type": "dir",
+      "children": {
+        "user": {
+          "type": "dir",
+          "children": {
+            "documents": {
+              "type": "dir",
+              "children": {
+                "hello.txt": {
+                  "type": "file",
+                  "content": "Привет, мир!\nЭто вторая строка файла.\nА это третья строка."
+                },
+                "notes.txt": {
+                  "type": "file",
+                  "content": "Заметка 1\nЗаметка 2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "etc": {
+      "type": "dir",
+      "children": {
+        "config.ini": {
+          "type": "file",
+          "content": "setting=true\nmode=auto"
+        }
+      }
+    }
+  }
+}
