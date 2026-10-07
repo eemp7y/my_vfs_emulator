@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fa9d3ce-9bc1-46c4-8f03-3b46778d4ad9" name="Changes" comment="test(vfs): add unit tests for VFS commands (ls, cd, tac, cal, chown, mv)">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="0fa9d3ce-9bc1-46c4-8f03-3b46778d4ad9" name="Changes" comment="docs(readme): add project description and usage instructions">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +35,65 @@
     "accountId": "454654f4-e575-4571-b6e7-6a6f3686f01e"
   }
 }]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.0" />
+      <entry key="H1" value="1.0" />
+      <entry key="H2" value="1.0" />
+      <entry key="H4" value="1.0" />
+      <entry key="D1" value="1.0" />
+      <entry key="W1" value="1.0" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.10366494322680522" />
+      <entry key="MS500" value="0.6355158446528333" />
+      <entry key="S2" value="0.8928563582909269" />
+      <entry key="S5" value="0.9556803100126275" />
+      <entry key="S10" value="0.9775890292002194" />
+      <entry key="S30" value="0.992473165299321" />
+      <entry key="S60" value="0.9962294742173216" />
+      <entry key="M2" value="0.9981129566423439" />
+      <entry key="M5" value="0.9992447549144368" />
+      <entry key="M10" value="0.999622306130889" />
+      <entry key="M15" value="0.9997481882343027" />
+      <entry key="M30" value="0.9998740861900075" />
+      <entry key="H1" value="0.999937041113093" />
+      <entry key="H2" value="0.9999685200610533" />
+      <entry key="H4" value="0.9999842599066514" />
+      <entry key="D1" value="0.9999973766339035" />
+      <entry key="W1" value="0.9999996252329935" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0,
   "fromUser": false
@@ -139,7 +198,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1791404678906</updated>
-      <workItem from="1791404679879" duration="1243000" />
+      <workItem from="1791404679879" duration="2199000" />
     </task>
     <task id="LOCAL-00001" summary="feat(vfs): add JSON VFS loader, GUI, and startup script execution">
       <option name="closed" value="true" />
@@ -157,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791405607024</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="docs(readme): add project description and usage instructions">
+      <option name="closed" value="true" />
+      <created>1791405977481</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1791405977481</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +244,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(vfs): add JSON VFS loader, GUI, and startup script execution" />
     <MESSAGE value="test(vfs): add unit tests for VFS commands (ls, cd, tac, cal, chown, mv)" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(vfs): add unit tests for VFS commands (ls, cd, tac, cal, chown, mv)" />
+    <MESSAGE value="docs(readme): add project description and usage instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(readme): add project description and usage instructions" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vfs_emulator$.coverage" NAME=" Coverage Results" MODIFIED="1791405560282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
