@@ -48,21 +48,17 @@ def load_vfs(path: str):
 
 
 def resolve_path_parts(path_str: str) -> list:
-    if path_str.startswith("/"):
-        parts = [p for p in path_str.split("/") if p]
-    else:
-        current_clean = [p for p in current_path if p != "/"]
-        relative_parts = [p for p in path_str.split("/") if p]
-        parts = current_clean + relative_parts
+    parts = []
+    if not path_str.startswith("/"):
+        parts.extend(p for p in current_path if p != "/")
+    parts.extend(p for p in path_str.split("/") if p)
 
     resolved = []
     for item in parts:
-        if item == ".":
-            continue
         if item == "..":
             if resolved:
                 resolved.pop()
-        else:
+        elif item != ".":
             resolved.append(item)
     return resolved
 
@@ -83,7 +79,8 @@ def cmd_ls(args: list) -> str:
     target_path = args[0] if args else "."
     res = get_node_by_path(target_path)
     if not res:
-        return f"ls: невозможно получить доступ к '{target_path}': Нет файла"
+        err = f"ls: нет доступа к '{target_path}': Нет файла"
+        return err
 
     node, _ = res
     if node.get("type") == "file":
@@ -171,7 +168,7 @@ def cmd_mv(args: list) -> str:
     src_path, dst_path = args[0], args[1]
     src_res = get_node_by_path(src_path)
     if not src_res:
-        return f"mv: не удалось выполнить stat для '{src_path}': Нет файла"
+        return f"mv: ошибка stat для '{src_path}': Нет файла"
 
     src_node, _ = src_res
     src_parent, src_name = get_parent_node_and_name(src_path)
@@ -185,14 +182,17 @@ def cmd_mv(args: list) -> str:
             return "mv: не удалось переместить"
         dst_parent["children"][dst_name] = src_node
 
-    if src_parent and "children" in src_parent and src_name in src_parent["children"]:
+    if (src_parent and "children" in src_parent
+            and src_name in src_parent["children"]):
         del src_parent["children"][src_name]
 
     return ""
 
 
 def cmd_conf_dump(args: list) -> str:
-    return f"vfs_path: {CONFIG['vfs_path']}\nscript_path: {CONFIG['script_path']}"
+    vfs_p = CONFIG["vfs_path"]
+    script_p = CONFIG["script_path"]
+    return f"vfs_path: {vfs_p}\nscript_path: {script_p}"
 
 
 def execute_command(line: str) -> str:
@@ -223,6 +223,20 @@ def execute_command(line: str) -> str:
 def get_prompt() -> str:
     path_str = "/".join(current_path).replace("//", "/")
     return f"{path_str} $ "
+
+
+def _execute_startup_script(append_out, prompt_lbl):
+    script = CONFIG["script_path"]
+    if script and os.path.exists(script):
+        with open(script, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    append_out(f"{get_prompt()}{line}")
+                    out = execute_command(line)
+                    if out:
+                        append_out(out)
+                    prompt_lbl.config(text=get_prompt())
 
 
 def run_gui():
@@ -261,18 +275,7 @@ def run_gui():
         prompt_label.config(text=get_prompt())
 
     entry.bind("<Return>", on_submit)
-
-    if CONFIG["script_path"] and os.path.exists(CONFIG["script_path"]):
-        with open(CONFIG["script_path"], "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    append_output(f"{get_prompt()}{line}")
-                    out = execute_command(line)
-                    if out:
-                        append_output(out)
-                    prompt_label.config(text=get_prompt())
-
+    _execute_startup_script(append_output, prompt_label)
     root.mainloop()
 
 
